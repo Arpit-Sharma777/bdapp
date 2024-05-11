@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Search for Donors</h1>
+
+<form method="get">
+  <label for="blood_group">Blood Group:</label>
+  <select name="blood_group" id="blood_group">
+    <option value="">Select a blood group</option>
+    <option value="A+">A+</option>
+    <option value="A-">A-</option>
+    <option value="B+">B+</option>
+    <option value="B-">B-</option>
+    <option value="AB+">AB+</option>
+    <option value="AB-">AB-</option>
+    <option value="O+">O+</option>
+    <option value="O-">O-</option>
+  </select>
+
+  <label for="location">Location:</label>
+  <input type="text" name="location" id="location" value="{{ request.GET.location }}">
+
+  <button type="submit">Search</button>
+</form>
+
+{% if donors %}
+<h2>Donors</h2>
+<ul>
+  {% for donor in donors %}
+  <li>
+    <h3>{{ donor.name }}</h3>
+    <p>Blood Group: {{ donor.blood_group }}</p>
+    <p>Location: {{ donor.location }}</p>
+    <p>Contact: {{ donor.contact }}</p>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

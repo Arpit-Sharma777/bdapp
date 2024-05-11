@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Donor List</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Weight (in Kg)</th>
+        <th>Email</th>
+        <th>Blood Group</th>
+        <th>Phone Number</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip Code</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for donor in donors %}
+        <tr>
+          <td>{{ donor.name }}</td>
+          <td>{{ donor.age }}</td>
+          <td>{{ donor.weight }}</td>
+          <td>{{ donor.email }}</td>
+          <td>{{ donor.blood_group }}</td>
+          <td>{{ donor.phone_number }}</td>
+          <td>{{ donor.address }}</td>
+          <td>{{ donor.city }}</td>
+          <td>{{ donor.state }}</td>
+          <td>{{ donor.zip_code }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
